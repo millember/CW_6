@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+     <!-- Кнопка добавления сообщения -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <a class="btn btn-outline-primary" href="{% url 'mailing:message_create' %}">Добавить сообщение</a>
+            </div>
+        </div>
+    </div>
+
+  <title>Список сообщений</title>
+    <!-- карточки сообщений -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %} <!-- цикл перебирает все объекты -->
+            <!-- карточка клиента в подшаблоне -->
+            {% include 'main/includes/inc_message_card.html' %}
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
